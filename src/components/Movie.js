@@ -18,7 +18,7 @@ class Movie extends Component {
         />
       </div>
       </section>
-    )
+    );
   }
 }
 
