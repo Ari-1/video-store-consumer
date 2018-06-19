@@ -36,10 +36,11 @@ class SearchForm extends Component {
       <form className="form" onSubmit={this.onFormSubmit}>
 
         <div>
-          <label htmlFor="title">Search </label>
+          <label htmlFor="title">Search: </label>
           <input
           type="text"
           name="title"
+          placeholder="Search by movie title"
           value={this.state.title}
           onChange={this.onInput}/>
         </div>

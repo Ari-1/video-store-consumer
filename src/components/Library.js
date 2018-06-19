@@ -30,18 +30,6 @@ class Library extends Component {
     });
   }
 
-  addMovie = (query) => {
-    console.log(query)
-    axios.post(BASE_URL, query)
-      .then((response) => {
-        let updatedList = this.state.movies;
-        updatedList.push(response.data);
-        this.setState({movies: updatedList});
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }
 
   render() {
 
