@@ -16,13 +16,11 @@ class Search extends Component {
   searchMovie = (query) => {
 
     let url = BASE_URL + query.title
-
     axios.get(url)
       .then((response) => {
         console.log(response.data);
         this.setState({ results: response.data });
       })
-
       .catch((error) => {
         console.log(error)
 
@@ -50,5 +48,11 @@ class Search extends Component {
 
 
 }
+
+const Search = () => (
+  <div>
+    <h2>Search</h2>
+  </div>
+)
 
 export default Search;
