@@ -5,7 +5,9 @@ import SearchForm from './SearchForm';
 import Movie from './Movie';
 
 
-const BASE_URL = "https://api.themoviedb.org/3/search/movie?api_key=2fade445124f4a598ae0a12090f7f525&language=en-US&query="
+const BASE_URL = "http://localhost:3000/movies?query="
+
+ //"https://api.themoviedb.org/3/search/movie?api_key=2fade445124f4a598ae0a12090f7f525&language=en-US&query="
 
 class Search extends Component {
   constructor() {
@@ -21,8 +23,8 @@ class Search extends Component {
 
     axios.get(url)
       .then((response) => {
-        console.log(response.data.results);
-        this.setState({ results: response.data.results });
+        console.log(response.data);
+        this.setState({ results: response.data });
       })
 
       .catch((error) => {
@@ -32,12 +34,11 @@ class Search extends Component {
   }
 
   render() {
-    const imageUrl = "https://image.tmdb.org/t/p/w500"
     const movies = this.state.results.map((movie, index) => {
       return <Movie
       key={index}
       title={movie.title}
-      image= {imageUrl + movie.poster_path} />
+      image= {movie.image_url} />
     });
 
     return(

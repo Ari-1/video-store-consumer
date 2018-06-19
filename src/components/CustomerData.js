@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class CustomerData extends Component {
-
-  render() {
+const CustomerData = (props) => {
 
     return (
       <section>
-        <h3>{this.props.name}</h3>
-        <p>{this.props.movies_count}</p>
+        <h3>{props.name}</h3>
+        <p>{props.movies_count}</p>
       </section>
     )
-  }
 }
 
 CustomerData.propTypes = {

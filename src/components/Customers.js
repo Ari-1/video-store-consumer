@@ -13,24 +13,16 @@ class Customers extends Component {
   }
 
   componentDidMount() {
-    console.log('In componentsDidMount');
-
     // this.props.updateStatusCallback('Loading...', 'success');
-
     axios.get(BASE_URL)
     .then((response) => {
-      console.log('Success!');
-      console.log(response.data)
-
       // this.props.updateStatusCallback('Successfully loaded all movies!', 'success');
-
       const customers = response.data;
       this.setState({ customers: customers });
     })
     .catch((error) => {
       console.log('Error :(');
       console.log(error);
-
       // this.props.updateStatusCallback(error.message, 'error');
     });
   }

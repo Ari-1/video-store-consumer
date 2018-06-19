@@ -15,24 +15,17 @@ class Library extends Component {
   }
 
   componentDidMount() {
-    console.log('In componentsDidMount');
-
     // this.props.updateStatusCallback('Loading...', 'success');
 
     axios.get(BASE_URL)
     .then((response) => {
-      console.log('Success!');
-      console.log(response.data)
-
       // this.props.updateStatusCallback('Successfully loaded all movies!', 'success');
-
       const movies = response.data;
       this.setState({ movies: movies });
     })
     .catch((error) => {
       console.log('Error :(');
       console.log(error);
-
       // this.props.updateStatusCallback(error.message, 'error');
     });
   }
