@@ -22,10 +22,7 @@ class Search extends Component {
     axios.get(url)
       .then((response) => {
         console.log(response.data.results);
-
-        let updatedList = this.state.results;
-        updatedList.push(response.data.results);
-        this.setState({ results: updatedList });
+        this.setState({ results: response.data.results });
       })
 
       .catch((error) => {
@@ -35,13 +32,12 @@ class Search extends Component {
   }
 
   render() {
-
+    const imageUrl = "https://image.tmdb.org/t/p/w500"
     const movies = this.state.results.map((movie, index) => {
-      return <Movie key={index}
-      index={index}
+      return <Movie
+      key={index}
       title={movie.title}
-      image={movie.image_url}
-      />
+      image= {imageUrl + movie.poster_path} />
     });
 
     return(
@@ -49,8 +45,7 @@ class Search extends Component {
         <div>
           <SearchForm resultCallback={this.searchMovie} />
         </div>
-
-        {movies}
+        { movies }
       </section>
 
     )

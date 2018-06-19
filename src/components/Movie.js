@@ -7,7 +7,6 @@ class Movie extends Component {
 
     return (
       <section>
-
       <div>
         <h1>
           { this.props.title }
