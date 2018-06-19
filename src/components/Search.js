@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 import SearchForm from './SearchForm';
 import Movie from './Movie';
 
 
 const BASE_URL = "http://localhost:3000/movies?query="
-
- //"https://api.themoviedb.org/3/search/movie?api_key=2fade445124f4a598ae0a12090f7f525&language=en-US&query="
 
 class Search extends Component {
   constructor() {
