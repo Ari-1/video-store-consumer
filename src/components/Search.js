@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import Movie from './Movie';
+import axios from 'axios';
 
 
 const BASE_URL = "http://localhost:3000/movies?query="
@@ -45,14 +46,6 @@ class Search extends Component {
 
     )
   }
-
-
 }
-
-const Search = () => (
-  <div>
-    <h2>Search</h2>
-  </div>
-)
 
 export default Search;
