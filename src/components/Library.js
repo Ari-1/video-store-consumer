@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import './Library.css';
 import Movie from './Movie';
 
 const BASE_URL = "http://localhost:3000/movies"
@@ -45,7 +45,7 @@ class Library extends Component {
     return (
       <section>
 
-      <div>
+      <div className="movie-list">
         <h2>{movies}</h2>
       </div>
 
