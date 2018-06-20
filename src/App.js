@@ -14,13 +14,15 @@ import './App.css';
 const App = () => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/search">Search</Link></li>
-        <li><Link to="/movies">Library</Link></li>
-        <li><Link to="/customers">Customers</Link></li>
-      </ul>
-
+      <h1>VideoStore</h1>
+      <div className="menu">
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/search">Search</Link></li>
+          <li><Link to="/movies">Library</Link></li>
+          <li><Link to="/customers">Customers</Link></li>
+        </ul>
+      </div>
       <hr/>
 
       <Route exact path="/" component={Home}/>

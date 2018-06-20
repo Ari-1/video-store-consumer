@@ -16,7 +16,6 @@ class Search extends Component {
   }
 
   searchMovie = (query) => {
-
     let url = SEARCH_URL + query.title
     axios.get(url)
       .then((response) => {
@@ -25,18 +24,17 @@ class Search extends Component {
       })
       .catch((error) => {
         console.log(error)
-
       });
   }
 
   addMovie = (movie) => {
-    console.log(movie)
     axios.post(BASE_URL, movie)
       .then((response) => {
-        console.log(response)
-        // let updatedList = this.state.results;
-        // updatedList.push(response.data);
-        // this.setState({results: updatedList});
+        console.log(response.config.data)
+        let updatedList = this.state.results;
+        updatedList.push(response.config.data);
+        this.setState({results: updatedList});
+        console.log(this.state.results)
       })
       .catch((error) => {
         console.log(error);
@@ -48,7 +46,7 @@ class Search extends Component {
       return <Movie
       key={index}
       title={movie.title}
-      image= {movie.image_url}
+      image={movie.image_url}
       overview={movie.overview}
       release_date={movie.release_date}
       external_id={movie.external_id}
