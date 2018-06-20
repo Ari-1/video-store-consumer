@@ -41,6 +41,14 @@ class Search extends Component {
       })
   }
 
+  setMovieStatus = () => {
+    let movies = this.state.results
+    for (let movie in movies){
+      movie.isVisible = false;
+    }
+    this.setState({results: movies});
+  }
+
   render() {
     const movies = this.state.results.map((movie, index) => {
       return <Movie
@@ -50,7 +58,8 @@ class Search extends Component {
       overview={movie.overview}
       release_date={movie.release_date}
       external_id={movie.external_id}
-      addMovieCallback={this.addMovie}/>
+      addMovieCallback={this.addMovie}
+      isVisible={this.setMovieStatus}/>
     });
 
     return(
