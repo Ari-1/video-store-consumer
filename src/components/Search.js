@@ -4,8 +4,8 @@ import Movie from './Movie';
 import axios from 'axios';
 
 
-const BASE_URL = "http://localhost:3000/movies?query="
-const SEARCH_URL = "http://localhost:3000/movies"
+const SEARCH_URL = "http://localhost:3000/movies?query="
+const BASE_URL = "http://localhost:3000/movies"
 
 class Search extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class Search extends Component {
 
   searchMovie = (query) => {
 
-    let url = BASE_URL + query.title
+    let url = SEARCH_URL + query.title
     axios.get(url)
       .then((response) => {
         console.log(response.data);
@@ -29,9 +29,9 @@ class Search extends Component {
       });
   }
 
-  addMovie = (query) => {
-    console.log(query)
-    axios.post(SEARCH_URL, query)
+  addMovie = (movie) => {
+    console.log(movie)
+    axios.post(BASE_URL, movie)
       .then((response) => {
         console.log(response)
         // let updatedList = this.state.results;
@@ -49,6 +49,9 @@ class Search extends Component {
       key={index}
       title={movie.title}
       image= {movie.image_url}
+      overview={movie.overview}
+      release_date={movie.release_date}
+      external_id={movie.external_id}
       addMovieCallback={this.addMovie}/>
     });
 
