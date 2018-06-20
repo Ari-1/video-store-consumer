@@ -16,6 +16,7 @@ class Movie extends Component {
   render() {
 
     let onClickHandler = () => {
+      console.log(this.state)
       this.props.addMovieCallback(this.state);
     }
 

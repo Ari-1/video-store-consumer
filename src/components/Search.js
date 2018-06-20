@@ -33,9 +33,10 @@ class Search extends Component {
     console.log(query)
     axios.post(SEARCH_URL, query)
       .then((response) => {
-        let updatedList = this.state.results;
-        updatedList.push(response.data);
-        this.setState({results: updatedList});
+        console.log(response)
+        // let updatedList = this.state.results;
+        // updatedList.push(response.data);
+        // this.setState({results: updatedList});
       })
       .catch((error) => {
         console.log(error);
