@@ -19,7 +19,7 @@ class Library extends Component {
 
     axios.get(BASE_URL)
     .then((response) => {
-      console.log(`A list of all movies: ${response}`);
+      console.log(`A list of all movies: ${response.data}`);
       // this.props.updateStatusCallback('Successfully loaded all movies!', 'success');
       const movies = response.data;
       this.setState({ movies: movies });

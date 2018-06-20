@@ -27,7 +27,7 @@ class Movie extends Component {
       external_id: this.props.external_id,
       inventory: 10
     }
-    console.log(`adding new movie: ${this.props.title}`);
+    console.log(`adding new movie: ${this.props.image}`);
     this.props.addMovieCallback(movie);
   }
 
@@ -76,7 +76,7 @@ Movie.propTypes = {
   release_date: PropTypes.string,
   external_id: PropTypes.number,
   addMovieCallback: PropTypes.func,
-  isVisible: PropTypes.bool
+  isVisible: PropTypes.boolean
 };
 
 export default Movie;

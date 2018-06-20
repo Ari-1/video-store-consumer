@@ -28,9 +28,10 @@ class Search extends Component {
   }
 
   addMovie = (movie) => {
+    console.log(movie.image_url)
     axios.post(BASE_URL, movie)
       .then((response) => {
-        console.log(response.config.data)
+        console.log(response)
       })
       .catch((error) => {
         console.log(error);
