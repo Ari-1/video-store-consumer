@@ -19,9 +19,12 @@ class Movie extends Component {
 
   onClickHandler = () => {
     // this.props.addMovieCallback(this.state);
+
+    let image = this.props.image.split("/").pop();
+
     let movie = {
       title: this.props.title,
-      image_url: this.props.image,
+      image_url: '/'+image,
       overview: this.props.overview,
       release_date: this.props.release_date,
       external_id: this.props.external_id,
