@@ -34,9 +34,6 @@ class Search extends Component {
     axios.post(BASE_URL, movie)
       .then((response) => {
         console.log(response)
-        // let updatedList = this.state.results;
-        // updatedList.push(response.data);
-        // this.setState({results: updatedList});
       })
       .catch((error) => {
         console.log(error);
