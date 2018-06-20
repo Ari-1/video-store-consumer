@@ -41,7 +41,7 @@ class Search extends Component {
       })
   }
 
-  setMovieStatus = () => {
+  removeMovieButton = () => {
     let movies = this.state.results
     for (let movie in movies){
       movie.isVisible = false;
@@ -59,7 +59,7 @@ class Search extends Component {
       release_date={movie.release_date}
       external_id={movie.external_id}
       addMovieCallback={this.addMovie}
-      isVisible={this.setMovieStatus}/>
+      isVisible={this.removeMovieButton}/>
     });
 
     return(
