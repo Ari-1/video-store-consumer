@@ -2,24 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Movie extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     image_url: '',
-  //     overview: '',
-  //     release_date: '',
-  //     title: '',
-  //     inventory: 10
-  //   };
-  // }
-
-  // let updateState = Object.assign({}, this.state)
-  // updateState['image_url'] = this.props.image_url
-  // this.setState(updateState);
-
   onClickHandler = () => {
-    // this.props.addMovieCallback(this.state);
-
     let image = this.props.image.split("/").pop();
 
     let movie = {
@@ -30,7 +13,7 @@ class Movie extends Component {
       external_id: this.props.external_id,
       inventory: 10
     }
-    console.log(`adding new movie: ${this.props.image}`);
+
     this.props.addMovieCallback(movie);
   }
 
