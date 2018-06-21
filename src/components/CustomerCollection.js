@@ -7,7 +7,8 @@ const BASE_URL = "http://localhost:3000/customers"
 
 class CustomerCollection extends Component {
   static propTypes = {
-    getCustomerCallback: PropTypes.func
+    getCustomerCallback: PropTypes.func,
+    updateStatusCallback: PropTypes.func
   }
   constructor() {
     super();
@@ -17,17 +18,15 @@ class CustomerCollection extends Component {
   }
 
   componentDidMount() {
-    // this.props.updateStatusCallback('Loading...', 'success');
+    this.props.updateStatusCallback('Loading...', 'success');
     axios.get(BASE_URL)
     .then((response) => {
-      // this.props.updateStatusCallback('Successfully loaded all movies!', 'success');
+      this.props.updateStatusCallback('Successfully loaded all customers!', 'success');
       const customers = response.data;
       this.setState({ customers: customers });
     })
     .catch((error) => {
-      console.log('Error :(');
-      console.log(error);
-      // this.props.updateStatusCallback(error.message, 'error');
+      this.props.updateStatusCallback(error.message, 'error');
     });
   }
 

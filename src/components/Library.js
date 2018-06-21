@@ -16,19 +16,17 @@ class Library extends Component {
   }
 
   componentDidMount() {
-    // this.props.updateStatusCallback('Loading...', 'success');
+    this.props.updateStatusCallback('Loading...', 'success');
 
     axios.get(BASE_URL)
     .then((response) => {
-      console.log(response.data);
-      // this.props.updateStatusCallback('Successfully loaded all movies!', 'success');
+      console.log(response.data)
+      this.props.updateStatusCallback(`Successfully loaded ${response.data.length} movies!`, 'success');
       const movies = response.data;
       this.setState({ movies: movies });
     })
     .catch((error) => {
-      console.log('Error :(');
-      console.log(error);
-      // this.props.updateStatusCallback(error.message, 'error');
+      this.props.updateStatusCallback(error.message, 'error');
     });
   }
 
@@ -63,7 +61,8 @@ class Library extends Component {
 }
 
 Library.propTypes = {
-  getMovieCallback: PropTypes.func
+  getMovieCallback: PropTypes.func,
+  updateStatusCallback: PropTypes.func
 }
 
 export default Library;

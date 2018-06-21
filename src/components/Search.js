@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import Movie from './Movie';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 
@@ -8,6 +9,9 @@ const SEARCH_URL = "http://localhost:3000/movies?query="
 const BASE_URL = "http://localhost:3000/movies"
 
 class Search extends Component {
+  static propTypes = {
+    updateStatusCallback: PropTypes.func
+  }
   constructor() {
     super();
     this.state = {
@@ -17,13 +21,14 @@ class Search extends Component {
 
   searchMovie = (query) => {
     let url = SEARCH_URL + query.title
+    this.props.updateStatusCallback('Loading...', 'success');
     axios.get(url)
       .then((response) => {
-        console.log(response.data);
+        this.props.updateStatusCallback('Successfully loaded search', 'success');
         this.setState({ results: response.data });
       })
       .catch((error) => {
-        console.log(error)
+        this.props.updateStatusCallback(error.message, 'error');
       });
   }
 
@@ -31,10 +36,11 @@ class Search extends Component {
     console.log(movie.image_url)
     axios.post(BASE_URL, movie)
       .then((response) => {
-        console.log(response)
+        console.log(response);
+        this.props.updateStatusCallback(`Successfully added ${movie.title} to Library`, 'success');
       })
       .catch((error) => {
-        console.log(error);
+        this.props.updateStatusCallback(error.message, 'error');
       })
   }
 

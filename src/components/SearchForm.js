@@ -22,9 +22,7 @@ class SearchForm extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
     this.props.resultCallback(this.state);
-
     this.setState({
       title: ''
     })
@@ -46,8 +44,7 @@ class SearchForm extends Component {
         </div>
 
         <div>
-          <input
-          type="submit"/>
+          <input type="submit"/>
         </div>
       </form>
     );

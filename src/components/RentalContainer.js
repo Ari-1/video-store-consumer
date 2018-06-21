@@ -17,7 +17,8 @@ const RENTAL_URL = "http://localhost:3000/rentals/";
 
 class RentalContainer extends Component {
   static propTypes = {
-    rentalCallback: PropTypes.func
+    rentalCallback: PropTypes.func,
+    sendStatusCallback: PropTypes.func
   };
 
   constructor() {
@@ -57,11 +58,17 @@ class RentalContainer extends Component {
       customer_id: this.state.customerId,
       due_date: date})
       .then((response) => {
-        console.log(response);
+        this.props.sendStatusCallback(`Successfully checked out movie, ${this.state.movieTitle} for ${this.state.customerName}`, `success`)
       })
       .catch((error) => {
         console.log(error);
+        this.props.sendStatusCallback('Failed to check-out movie', 'error');
       })
+  }
+
+  sendStatus = (message, type) => {
+    console.log(message, type)
+    this.props.sendStatusCallback(message, type);
   }
 
   render() {
@@ -86,12 +93,19 @@ class RentalContainer extends Component {
             <hr/>
 
             <Route exact path="/" component={Home}/>
-            <Route path="/search" component={Search}/>
+
+            <Route path="/search" render={ () =>
+            <Search updateStatusCallback = {
+              this.sendStatus} />} />
+
             <Route path="/movies" render={ () =>
               <Library
-                getMovieCallback= {this.buildMovie} />} />
+                getMovieCallback= {this.buildMovie}
+                updateStatusCallback = {this.sendStatus} />} />
+
             <Route path="/customers" render={ () => <CustomerCollection
-                getCustomerCallback = {this.buildCustomer} />} />
+                getCustomerCallback = {this.buildCustomer}
+                updateStatusCallback = {this.sendStatus}/>} />
           </div>
         </Router>
       </main>
