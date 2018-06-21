@@ -58,7 +58,9 @@ class RentalContainer extends Component {
       customer_id: this.state.customerId,
       due_date: date})
       .then((response) => {
-        this.props.sendStatusCallback(`Successfully checked out movie, ${this.state.movieTitle} for ${this.state.customerName}`, `success`)
+        console.log(response)
+        this.props.sendStatusCallback(`Successfully checked out movie,
+          ${this.state.movieTitle} for ${this.state.customerName}`, `success`)
       })
       .catch((error) => {
         console.log(error);
