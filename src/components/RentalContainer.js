@@ -91,21 +91,21 @@ class RentalContainer extends Component {
               </ul>
             </div>
             <hr/>
-
-            <Route exact path="/" component={Home}/>
-
-            <Route path="/search" render={ () =>
-            <Search updateStatusCallback = {
+            <div className="body">
+              <Route exact path="/" component={Home}/>
+              <Route path="/search" render={ () =>
+                <Search updateStatusCallback = {
               this.sendStatus} />} />
-
-            <Route path="/movies" render={ () =>
-              <Library
-                getMovieCallback= {this.buildMovie}
-                updateStatusCallback = {this.sendStatus} />} />
-
-            <Route path="/customers" render={ () => <CustomerCollection
-                getCustomerCallback = {this.buildCustomer}
-                updateStatusCallback = {this.sendStatus}/>} />
+              <Route path="/movies" render={ () =>
+                <Library
+                  getMovieCallback= {this.buildMovie}
+                  updateStatusCallback = {this.sendStatus} />} />
+              <div className="movies">
+                <Route path="/customers" render={ () => <CustomerCollection
+                  getCustomerCallback = {this.buildCustomer}
+                  updateStatusCallback = {this.sendStatus}/>} />
+              </div>
+            </div>
           </div>
         </Router>
       </main>
