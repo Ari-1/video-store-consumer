@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 class Customer extends Component {
 
   customerInfo = (event) => {
-    console.log(event.target)
-    this.props.rentalCustomerCallback(event.target)
+    console.log(event.target);
+    this.props.rentalCustomerCallback(event.target);
   }
   render() {
     return (

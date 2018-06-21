@@ -31,13 +31,19 @@ class Library extends Component {
     });
   }
 
+  rentalForMovie = (movie) => {
+    console.log(movie);
+    this.props.getMovieCallback(movie);
+  }
+
 
   render() {
     const movies = this.state.movies.map((movie, index) => {
       return <Movie key={index}
-      index={index}
+      id={movie.id}
       title={movie.title}
       image={movie.image_url}
+      rentalMovieCallback={this.rentalForMovie}
       />
     });
 

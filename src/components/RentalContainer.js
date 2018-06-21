@@ -5,14 +5,16 @@ import {
   Route,
   Link,
   Props
-} from 'react-router-dom'
-
-import Home from './Home'
-import Search from './Search'
+} from 'react-router-dom';
+import axios from 'axios';
+import Home from './Home';
+import Search from './Search';
 import CustomerCollection from './CustomerCollection';
 import Library from './Library';
+import './RentalContainer.css';
 
-// const RENTAL_URL = "http://localhost:3000/rentals/"
+
+const RENTAL_URL = "http://localhost:3000/rentals/";
 
 class RentalContainer extends Component {
   static propTypes = {
@@ -22,22 +24,12 @@ class RentalContainer extends Component {
   constructor() {
     super();
     this.state = {
-      movie: '',
+      movieId: '',
+      movieTitle: 'None',
       customerId: '',
       customerName: 'None'
     };
   }
-
-  // onSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.props.rentalCallback(this.state);
-  //
-  //   this.setState({
-  //     movie: '',
-  //     customerId: '',
-  //     customerName: ''
-  //   })
-  // }
 
 
   buildCustomer = (customer) => {
@@ -48,12 +40,29 @@ class RentalContainer extends Component {
     });
   }
 
+  buildMovie = (movie) => {
+    console.log(movie)
+    this.setState({
+      movieId: movie.id,
+      movieTitle: movie.title
+    });
+  }
+
+  sendRequest = () => {
+    const url = RENTAL_URL + this.state.movieTitle + '/check-out'
+    axios.post(url, this.state.customerId)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   render() {
 
     return (
       <main>
-
-
         <Router>
           <div>
             <h1>VideoStore</h1>
@@ -63,17 +72,21 @@ class RentalContainer extends Component {
                 <li><Link to="/search">Search</Link></li>
                 <li><Link to="/movies">Library</Link></li>
                 <li><Link to="/customers">Customers</Link></li>
-                <li>Selected Customer: {this.state.customerName}</li>
+                <span className="rental">Selected Customer:</span> <li>{this.state.customerName}</li>
+                <span className="rental">Selected Movie:</span>
+                <li>{this.state.movieTitle}</li>
+                <li><button onClick={this.sendRequest}>Check-out!</button></li>
               </ul>
             </div>
             <hr/>
 
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Search}/>
-            <Route path="/movies" component={Library}/>
+            <Route path="/movies" render={props =>
+              <Library
+                getMovieCallback= {this.buildMovie} />} />
             <Route path="/customers" render={props => <CustomerCollection
-                getCustomerCallback = {this.buildCustomer}
-                />} />
+                getCustomerCallback = {this.buildCustomer} />} />
           </div>
         </Router>
       </main>

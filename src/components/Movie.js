@@ -16,6 +16,11 @@ class Movie extends Component {
     this.props.addMovieCallback(movie);
   }
 
+  movieInfo = (event) => {
+    console.log(event.target);
+    this.props.rentalMovieCallback(event.target);
+  }
+
   movieItem() {
     if (this.props.isVisible) {
       return (
@@ -23,7 +28,7 @@ class Movie extends Component {
       );
     } else {
       return (
-        <button>Select for Rental</button>
+        <button onClick={this.movieInfo} id={this.props.id} title={this.props.title}>Select for Rental</button>
       );
     }
   }
