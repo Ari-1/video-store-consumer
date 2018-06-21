@@ -77,21 +77,21 @@ class RentalContainer extends Component {
       <main>
         <Router>
           <div>
-            <h1>VideoStore</h1>
+            <h1 id="header">VIDEOBUSTER</h1>
             <div className="menu">
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/search">Search</Link></li>
-                <li><Link to="/movies">Library</Link></li>
-                <li><Link to="/customers">Customers</Link></li>
-                <span className="rental">Selected Customer:</span> <li>{this.state.customerName}</li>
-                <span className="rental">Selected Movie:</span>
+                <li><Link to="/">HOME</Link></li>
+                <li><Link to="/search">SEARCH</Link></li>
+                <li><Link to="/movies">LIBRARY</Link></li>
+                <li><Link to="/customers">CUSTOMERS</Link></li>
+                <span className="rental">SELECTED CUSTOMER:</span> <li>{this.state.customerName}</li>
+                <span className="rental">SELECTED MOVIE:</span>
                 <li>{this.state.movieTitle}</li>
-                <li><button onClick={this.sendRequest}>Check-out!</button></li>
+                <li><button onClick={this.sendRequest}>CHECKOUT NOW</button></li>
               </ul>
             </div>
             <hr/>
-            <div className="body">
+            <div className="content-body">
               <Route exact path="/" component={Home}/>
               <Route path="/search" render={ () =>
                 <Search updateStatusCallback = {

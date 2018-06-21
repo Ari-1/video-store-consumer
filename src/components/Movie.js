@@ -46,9 +46,9 @@ class Movie extends Component {
 
   render() {
     return (
-      <section>
+      <section id="movie-item">
       <div>
-        <h1>{this.props.title}</h1>
+        <h1 className="movie-title">{this.props.title}</h1>
         <img src={this.props.image} alt={this.props.title}/>
       </div>
       <div>
