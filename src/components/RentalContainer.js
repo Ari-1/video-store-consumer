@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Props
+} from 'react-router-dom'
+
+import Home from './Home'
+import Search from './Search'
 import CustomerCollection from './CustomerCollection';
 import Library from './Library';
 
@@ -15,23 +24,24 @@ class RentalContainer extends Component {
     this.state = {
       movie: '',
       customerId: '',
-      customerName: ''
+      customerName: 'None'
     };
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.props.rentalCallback(this.state);
-
-    this.setState({
-      movie: '',
-      customerId: '',
-      customerName: ''
-    })
-  }
+  // onSubmit = (event) => {
+  //   event.preventDefault();
+  //   this.props.rentalCallback(this.state);
+  //
+  //   this.setState({
+  //     movie: '',
+  //     customerId: '',
+  //     customerName: ''
+  //   })
+  // }
 
 
   buildCustomer = (customer) => {
+    console.log(customer.name)
     this.setState({
       customerId: customer.id,
       customerName: customer.name
@@ -39,13 +49,34 @@ class RentalContainer extends Component {
   }
 
   render() {
-    const customer = <CustomerCollection
-      getCustomerCallback={this.buildCustomer()} />
+
     return (
-        <div>
-          {customer}
-          <button onClick={this.onSubmit}>Check-Out</button>
-        </div>
+      <main>
+
+
+        <Router>
+          <div>
+            <h1>VideoStore</h1>
+            <div className="menu">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/search">Search</Link></li>
+                <li><Link to="/movies">Library</Link></li>
+                <li><Link to="/customers">Customers</Link></li>
+                <li>Selected Customer: {this.state.customerName}</li>
+              </ul>
+            </div>
+            <hr/>
+
+            <Route exact path="/" component={Home}/>
+            <Route path="/search" component={Search}/>
+            <Route path="/movies" component={Library}/>
+            <Route path="/customers" render={props => <CustomerCollection
+                getCustomerCallback = {this.buildCustomer}
+                />} />
+          </div>
+        </Router>
+      </main>
     );
   }
 }

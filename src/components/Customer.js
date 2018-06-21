@@ -12,7 +12,7 @@ class Customer extends Component {
       <section>
         <h3>{this.props.name}</h3>
         <p>{this.props.movies_count}</p>
-        <button onClick={this.customerInfo}>Select for Rental</button>
+        <button onClick={this.customerInfo} name={this.props.name} id={this.props.id}>Select for Rental</button>
       </section>
     )
   }

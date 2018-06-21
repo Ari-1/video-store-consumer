@@ -31,15 +31,17 @@ class CustomerCollection extends Component {
     });
   }
 
-  rentalForCustomer = (banana) => {
-    console.log(banana);
-    this.props.getCustomerCallback(banana);
+  rentalForCustomer = (customer) => {
+    console.log(customer.name);
+    this.props.getCustomerCallback(customer);
+  //   console.log(this.props.getCustomerCallback(customer));
   }
 
   render() {
 
     const customers = this.state.customers.map((customer, index) => {
-      return <Customer key={index}
+      return <Customer
+      key={index}
       id={customer.id}
       name={customer.name}
       movies_count={customer.movies_checked_out_count}
