@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Props
 } from 'react-router-dom';
 import axios from 'axios';
 import Home from './Home';
@@ -88,10 +87,10 @@ class RentalContainer extends Component {
 
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Search}/>
-            <Route path="/movies" render={props =>
+            <Route path="/movies" render={ () =>
               <Library
                 getMovieCallback= {this.buildMovie} />} />
-            <Route path="/customers" render={props => <CustomerCollection
+            <Route path="/customers" render={ () => <CustomerCollection
                 getCustomerCallback = {this.buildCustomer} />} />
           </div>
         </Router>
