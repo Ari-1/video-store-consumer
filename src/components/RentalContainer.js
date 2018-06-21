@@ -49,8 +49,14 @@ class RentalContainer extends Component {
   }
 
   sendRequest = () => {
+    let date = new Date();
+    date.setDate(date.getDate() + 7)
+
     const url = RENTAL_URL + this.state.movieTitle + '/check-out'
-    axios.post(url, this.state.customerId)
+    axios.post(url,
+      {title: this.state.movieTitle,
+      customer_id: this.state.customerId,
+      due_date: date})
       .then((response) => {
         console.log(response);
       })

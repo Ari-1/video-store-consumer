@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Library.css';
 import Movie from './Movie';
@@ -59,6 +60,10 @@ class Library extends Component {
     );
   }
 
+}
+
+Library.propTypes = {
+  getMovieCallback: PropTypes.func
 }
 
 export default Library;

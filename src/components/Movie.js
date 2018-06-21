@@ -17,7 +17,6 @@ class Movie extends Component {
   }
 
   movieInfo = (event) => {
-    console.log(event.target);
     this.props.rentalMovieCallback(event.target);
   }
 
@@ -54,7 +53,9 @@ Movie.propTypes = {
   overview: PropTypes.string,
   release_date: PropTypes.string,
   external_id: PropTypes.number,
+  id: PropTypes.number,
   addMovieCallback: PropTypes.func,
+  rentalMovieCallback: PropTypes.func,
   isVisible: PropTypes.boolean
 };
 

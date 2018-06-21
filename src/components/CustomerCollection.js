@@ -34,7 +34,6 @@ class CustomerCollection extends Component {
   rentalForCustomer = (customer) => {
     console.log(customer.name);
     this.props.getCustomerCallback(customer);
-  //   console.log(this.props.getCustomerCallback(customer));
   }
 
   render() {
