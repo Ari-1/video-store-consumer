@@ -20,7 +20,6 @@ class Library extends Component {
 
     axios.get(BASE_URL)
     .then((response) => {
-      console.log(response.data)
       this.props.updateStatusCallback(`Successfully loaded ${response.data.length} movies!`, 'success');
       const movies = response.data;
       this.setState({ movies: movies });
@@ -31,7 +30,6 @@ class Library extends Component {
   }
 
   rentalForMovie = (movie) => {
-    console.log(movie);
     this.props.getMovieCallback(movie);
   }
 
@@ -49,11 +47,9 @@ class Library extends Component {
 
     return (
       <section>
-
-      <div className="movie-list">
-        <h2>{movies}</h2>
+      <div>
+        <p id="list">{movies}</p>
       </div>
-
       </section>
     );
   }

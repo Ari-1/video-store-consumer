@@ -1,17 +1,23 @@
-
+.menu {
+  border: 5px solid rgb(237, 221, 12);
+}
 .menu li {
   display: inline-block;
-  color: white;
+  color: goldenrod;
   text-align: center;
   text-decoration: none;
 }
 
 .menu li a {
   display: block;
-  color: white;
+  color:  rgb(255, 201, 9);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: rgb(26, 95, 213);
 }
 
 .menu ul {
@@ -19,5 +25,5 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #1d1aad;
 }

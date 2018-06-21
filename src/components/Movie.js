@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Movie.css'
 
 class Movie extends Component {
   static propTypes = {
@@ -45,9 +46,9 @@ class Movie extends Component {
 
   render() {
     return (
-      <section>
+      <section id="movie-item">
       <div>
-        <h1>{this.props.title}</h1>
+        <h1 className="movie-title">{this.props.title}</h1>
         <img src={this.props.image} alt={this.props.title}/>
       </div>
       <div>

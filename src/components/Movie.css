@@ -1,0 +1,7 @@
+.movie-item h1 {
+  color: rgb(255, 191, 0);
+}
+
+#movie-item > img {
+  radius: 5px;
+}
