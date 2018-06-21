@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CustomerData from './CustomerData';
+import PropTypes from 'prop-types';
+import Customer from './Customer';
 
 const BASE_URL = "http://localhost:3000/customers"
 
-class Customers extends Component {
+class CustomerCollection extends Component {
+  static propTypes = {
+    getCustomerCallback: PropTypes.func
+  }
   constructor() {
     super();
     this.state = {
@@ -27,13 +31,19 @@ class Customers extends Component {
     });
   }
 
+  rentalForCustomer = (banana) => {
+    console.log(banana);
+    this.props.getCustomerCallback(banana);
+  }
+
   render() {
 
     const customers = this.state.customers.map((customer, index) => {
-      return <CustomerData key={index}
-      index={index}
+      return <Customer key={index}
+      id={customer.id}
       name={customer.name}
       movies_count={customer.movies_checked_out_count}
+      rentalCustomerCallback={this.rentalForCustomer}
       />
     });
 
@@ -50,4 +60,4 @@ class Customers extends Component {
 
 }
 
-export default Customers;
+export default CustomerCollection;

@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Movie extends Component {
+
   onClickHandler = () => {
     let image = this.props.image.split("/").pop();
-
     let movie = {
       title: this.props.title,
-      image_url: '/'+image,
+      image_url: '/'+ image,
       overview: this.props.overview,
       release_date: this.props.release_date,
       external_id: this.props.external_id,
       inventory: 10
     }
-
     this.props.addMovieCallback(movie);
   }
 
@@ -22,25 +21,14 @@ class Movie extends Component {
       return (
         <button onClick={ this.onClickHandler }>Add to Library</button>
       );
+    } else {
+      return (
+        <button>Select for Rental</button>
+      );
     }
   }
 
   render() {
-
-    // let onClickHandler = () => {
-    //   // this.props.addMovieCallback(this.state);
-    //   let movie = {
-    //     title: this.props.title,
-    //     image_url: this.props.image,
-    //     overview: this.props.overview,
-    //     release_date: this.props.release_date,
-    //     external_id: this.props.external_id,
-    //     inventory: 10
-    //   }
-    //   console.log(`adding new movie: ${this.props.title}`);
-    //   this.props.addMovieCallback(movie);
-    // }
-
     return (
       <section>
       <div>
