@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Movie extends Component {
+  static propTypes = {
+    title: PropTypes.string,
+    image: PropTypes.string,
+    overview: PropTypes.string,
+    release_date: PropTypes.string,
+    external_id: PropTypes.number,
+    id: PropTypes.number,
+    addMovieCallback: PropTypes.func,
+    rentalMovieCallback: PropTypes.func,
+    isVisible: PropTypes.bool
+  };
 
   onClickHandler = () => {
     let image = this.props.image.split("/").pop();
@@ -46,17 +57,5 @@ class Movie extends Component {
     );
   }
 }
-
-Movie.propTypes = {
-  title: PropTypes.string,
-  image: PropTypes.string,
-  overview: PropTypes.string,
-  release_date: PropTypes.string,
-  external_id: PropTypes.number,
-  id: PropTypes.number,
-  addMovieCallback: PropTypes.func,
-  rentalMovieCallback: PropTypes.func,
-  isVisible: PropTypes.boolean
-};
 
 export default Movie;
