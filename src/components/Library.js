@@ -48,7 +48,7 @@ class Library extends Component {
     return (
       <section>
       <div>
-        <p id="list">{movies}</p>
+        <div id="list">{movies}</div>
       </div>
       </section>
     );

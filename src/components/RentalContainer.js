@@ -31,7 +31,6 @@ class RentalContainer extends Component {
     };
   }
 
-
   buildCustomer = (customer) => {
     console.log(customer.name)
     this.setState({
@@ -78,8 +77,10 @@ class RentalContainer extends Component {
     return (
       <main>
         <Router>
-          <div>
-            <h1 id="header">VIDEOBUSTER</h1>
+          <section>
+            <header id="header-background">
+              <h1 id="header">VIDEOBUSTER</h1>
+            </header>
             <div className="menu">
               <ul>
                 <li><Link to="/">HOME</Link></li>
@@ -108,7 +109,7 @@ class RentalContainer extends Component {
                   updateStatusCallback = {this.sendStatus}/>} />
               </div>
             </div>
-          </div>
+          </section>
         </Router>
       </main>
     );
