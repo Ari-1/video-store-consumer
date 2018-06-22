@@ -6,7 +6,7 @@ input[type=text] {
 }
 
 input[type=submit] {
-  padding: 10px;
+  padding: 5px;
   margin: auto;
   font-size: 1em;
   background-color: rgb(214, 214, 212);

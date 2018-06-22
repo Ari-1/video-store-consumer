@@ -1,9 +1,11 @@
 
 #list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-flow: wrap;
   justify-content: center;
   align-items: center;
-  padding: 5px;
-  margin: 10px;
+  margin: auto;
+  /* padding: 5px;
+  margin: 10px; */
+  color: rgb(39, 46, 69);
 }

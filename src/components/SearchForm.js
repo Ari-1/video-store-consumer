@@ -35,7 +35,7 @@ class SearchForm extends Component {
       <form className="form" onSubmit={this.onFormSubmit}>
 
         <div id="form-page">
-          <label htmlFor="title">Search: </label>
+          <label htmlFor="title">SEARCH: </label>
           <input
           type="text"
           name="title"

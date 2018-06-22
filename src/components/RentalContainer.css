@@ -13,6 +13,7 @@ li button {
   background-size: auto;
   /* border: 5px solid rgb(255, 201, 9); */
   background-position: top;
+  color: rgb(39, 46, 69);
 }
 
 #header {
