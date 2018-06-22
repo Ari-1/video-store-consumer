@@ -11,7 +11,7 @@ li button {
 .content-body {
   background-image: url('film.jpg');
   background-size: auto;
-  border: 5px solid rgb(255, 201, 9);
+  /* border: 5px solid rgb(255, 201, 9); */
   background-position: top;
 }
 
@@ -20,11 +20,6 @@ li button {
   font-size: 3em;
 }
 
-h1 {
+/* header {
   color: rgb(255, 191, 0);
-}
-
-/* header{
-  background-image: url(blockbuster.jpg);
-  background-repeat: no-repeat;
 } */

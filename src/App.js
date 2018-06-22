@@ -27,6 +27,9 @@ class App extends Component {
   render() {
     return (
       <div>
+      <header id="header-background">
+        <h1 id="header">VIDEOBUSTER</h1>
+      </header>
       <Status message={this.state.status.message} type={this.state.status.type}/>
       < RentalContainer
       sendStatusCallback ={this.updateStatus} />

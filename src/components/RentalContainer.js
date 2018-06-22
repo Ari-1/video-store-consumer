@@ -78,9 +78,6 @@ class RentalContainer extends Component {
       <main>
         <Router>
           <section>
-            <header id="header-background">
-              <h1 id="header">VIDEOBUSTER</h1>
-            </header>
             <div className="menu">
               <ul>
                 <li><Link to="/">HOME</Link></li>

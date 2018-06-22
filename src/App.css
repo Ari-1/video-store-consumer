@@ -37,3 +37,7 @@
   overflow: hidden;
   background-color: #1d1aad;
 }
+
+header {
+  color: rgb(255, 191, 0);
+}

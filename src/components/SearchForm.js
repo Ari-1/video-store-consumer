@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './SearchForm.css';
 
 
 class SearchForm extends Component {
@@ -33,7 +34,7 @@ class SearchForm extends Component {
     return (
       <form className="form" onSubmit={this.onFormSubmit}>
 
-        <div>
+        <div id="form-page">
           <label htmlFor="title">Search: </label>
           <input
           type="text"
