@@ -5,12 +5,13 @@
   margin: auto;
   left: 0;
   right: 0;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
 }
 
 #gif-one {
   animation: img 3s linear forwards;
   background: url(https://media.giphy.com/media/CBXzFQx2W1y7K/giphy.gif);
-  align-content: center;
 }
 
 #gif-two {

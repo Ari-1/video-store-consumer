@@ -78,20 +78,30 @@ class RentalContainer extends Component {
       <main>
         <Router>
           <section>
-            <div className="menu">
+
+            <article className="menu">
               <ul>
                 <li><Link to="/">HOME</Link></li>
                 <li><Link to="/search">SEARCH</Link></li>
                 <li><Link to="/movies">LIBRARY</Link></li>
                 <li><Link to="/customers">CUSTOMERS</Link></li>
-                <span className="rental">SELECTED CUSTOMER:</span> <li>{this.state.customerName}</li>
-                <span className="rental">SELECTED MOVIE:</span>
-                <li>{this.state.movieTitle}</li>
-                <li><button onClick={this.sendRequest}>CHECKOUT NOW</button></li>
+                <div className="rental">
+                  <span className="selected">
+                    SELECTED CUSTOMER: <li>{this.state.customerName}</li>
+                  </span>
+                  <span className="selected">
+                    SELECTED MOVIE: <li>{this.state.movieTitle}</li>
+                  </span>
+                  <li>
+                    <button onClick={this.sendRequest}>CHECKOUT NOW</button>
+                  </li>
+                </div>
               </ul>
-            </div>
+            </article>
+
             <hr/>
-            <div className="content-body">
+
+            <article className="content-body">
               <Route exact path="/" component={Home}/>
               <Route path="/search" render={ () =>
                 <Search updateStatusCallback = {
@@ -105,7 +115,8 @@ class RentalContainer extends Component {
                   getCustomerCallback = {this.buildCustomer}
                   updateStatusCallback = {this.sendStatus}/>} />
               </div>
-            </div>
+            </article>
+
           </section>
         </Router>
       </main>

@@ -1,5 +1,5 @@
 .menu {
-  border: 5px solid rgb(237, 221, 12);
+  border: 5px solid goldenrod;
 }
 .menu li {
   border-right: 1px solid #bbb;
@@ -24,7 +24,7 @@
 }
 
 .menu li a:hover:not(.active) {
-  background-color: rgb(26, 95, 213);
+  background-color: rgb(32, 61, 185);
 }
 
 .active {
@@ -42,10 +42,17 @@ header#header-background {
   background-image: url('blockbuster.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  padding: 200px;
+  background-size: contain;
+  padding: 150px;
   text-align: center;
+  background-color: white;
 }
 
 #body {
   background-color: whitesmoke;
+}
+
+#status {
+  color: rgb(233, 115, 29);
+  text-align: center;
 }

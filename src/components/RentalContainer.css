@@ -1,6 +1,10 @@
 .rental {
-  padding: 10px;
   color: white;
+  float: right;
+}
+
+.selected {
+  padding: 10px;
 }
 
 li button {
