@@ -38,6 +38,10 @@
   background-color: #1d1aad;
 }
 
-header {
-  color: rgb(255, 191, 0);
+header#header-background {
+  background-image: url('blockbuster.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 200px;
+  text-align: center;
 }
