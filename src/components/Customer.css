@@ -1,0 +1,12 @@
+#customers {
+  display: inline-flex;
+  flex-flow: wrap column;
+  padding: 10px;
+}
+
+button {
+  padding: 20px;
+  margin: auto;
+  font-size: 1em;
+  background-color: rgb(221, 219, 203);
+}

@@ -1,7 +1,3 @@
-.movie-item h1 {
+#movie-title {
   color: rgb(255, 191, 0);
-}
-
-#movie-item > img {
-  radius: 5px;
 }

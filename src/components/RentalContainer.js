@@ -79,7 +79,7 @@ class RentalContainer extends Component {
       <main>
         <Router>
           <div>
-            <h1 id="header">VIDEOBUSTER</h1>
+            <h1 id="header">DANBUSTER</h1>
             <div className="menu">
               <ul>
                 <li><Link to="/">HOME</Link></li>

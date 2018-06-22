@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import './Customer.css';
 
 class Customer extends Component {
 
@@ -8,9 +9,9 @@ class Customer extends Component {
   }
   render() {
     return (
-      <section>
+      <section id="customers">
         <h3>{this.props.name}</h3>
-        <p>{this.props.movies_count}</p>
+        <p>{this.props.movies_count} Movies checked out</p>
         <button onClick={this.customerInfo} name={this.props.name} id={this.props.id}>Select for Rental</button>
       </section>
     )

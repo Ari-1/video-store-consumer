@@ -2,10 +2,17 @@
   border: 5px solid rgb(237, 221, 12);
 }
 .menu li {
-  display: inline-block;
+  border-right: 1px solid #bbb;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   color: goldenrod;
-  text-align: center;
   text-decoration: none;
+}
+
+.menu li:last-child {
+  border-right: none;
 }
 
 .menu li a {
@@ -16,10 +23,13 @@
   text-decoration: none;
 }
 
-.menu li a:hover {
+.menu li a:hover:not(.active) {
   background-color: rgb(26, 95, 213);
 }
 
+.active {
+
+}
 .menu ul {
   list-style-type: none;
   margin: 0;
