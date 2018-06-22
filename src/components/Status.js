@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Status extends React.Component {
-  static propTypes = {
-    message: PropTypes.string,
-    type: PropTypes.string
-  }
-
-  render() {
+const Status = (props) => {
     return (
-      <section className={`status ${this.props.type}`}>
-        {this.props.message}
+      <section className={`status ${props.type}`}>
+        {props.message}
       </section>
     );
-  }
 }
 
+Status.propTypes = {
+  message: PropTypes.string,
+  type: PropTypes.string
+}
 export default Status;
