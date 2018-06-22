@@ -45,3 +45,7 @@ header#header-background {
   padding: 200px;
   text-align: center;
 }
+
+#body {
+  background-color: whitesmoke;
+}
